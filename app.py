@@ -13,8 +13,6 @@ from decouple import config
 # SECTION 1
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> LOGIC TO SEND REQUEST TO OPEN AI >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-openai.api_key = ""
-
 # function for preparing and formating prompts
 def generate_prompt(blockchain):
     main_prompt = """Give the token name, token symbol, chain, chain layer type, founder and year, consensus mechanism, TPS, programming language and framework, and Hex Code for Color of Blockchain Logo:"""
@@ -77,7 +75,7 @@ def send_to_openai_and_transform(blockchain):
 # SECTION 2
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> LOGIC FOR FETCHING TOKEN LOGO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-api_key = config('COIN_MARKET_CAP_KEY')
+api_key = config('ORACLE_KEY')
 
 def get_token_logo_url(token_symbol):
     try:
