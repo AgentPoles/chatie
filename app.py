@@ -5,13 +5,15 @@ import requests
 import base64
 import openai
 import urllib.parse
+from decouple import config
+
 
 
 
 # SECTION 1
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> LOGIC TO SEND REQUEST TO OPEN AI >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-openai.api_key = "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"
+openai.api_key = config("OPENAI_API_KEY")
 
 # function for preparing and formating prompts
 def generate_prompt(blockchain):
@@ -75,7 +77,7 @@ def send_to_openai_and_transform(blockchain):
 # SECTION 2
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> LOGIC FOR FETCHING TOKEN LOGO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-api_key = 'cbd98ded-2b5a-4f53-9898-ddc25c13ee38'
+api_key = config('COIN_MARKET_CAP_KEY')
 
 def get_token_logo_url(token_symbol):
     try:
