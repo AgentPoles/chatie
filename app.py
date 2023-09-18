@@ -13,7 +13,7 @@ from decouple import config
 # SECTION 1
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> LOGIC TO SEND REQUEST TO OPEN AI >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-openai.api_key = config("OPENAI_API_KEY")
+openai.api_key = ""
 
 # function for preparing and formating prompts
 def generate_prompt(blockchain):
@@ -168,9 +168,24 @@ file_.close()
 
 
 # SECTION 4B
-#>>>>>>>>>>>>>>>>> APP TITLE AND CARDS >>>>>>>>>>>>
+#>>>>>>>>>>>>>>>>> APP TITLE, OPEN_API_KEY FIELD AND CARDS >>>>>>>>>>>>
 
-st.title("✨Chattie")
+
+col_a, col_b =  st.columns(2)
+st.markdown("""
+    <style>
+    [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{
+        gap: -2rem;
+    }
+    </style>
+    """,unsafe_allow_html=True)
+# Add components to the first column
+with col_a:
+    st.title("✨Chattie")
+    
+with col_b:
+    openai.api_key = st.text_input("Your Open API Key")
+
     
 is_visible = True
 
