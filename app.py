@@ -12,7 +12,11 @@ from decouple import config
 
 # SECTION 1
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> LOGIC TO SEND REQUEST TO OPEN AI >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-openai.api_key = config('KEY')
+try:
+    openai.api_key = config('KEY')
+except NameError:
+    pass
+
 # function for preparing and formating prompts
 def generate_prompt(blockchain):
     main_prompt = """Give the token name, token symbol, chain, chain layer type, founder and year, consensus mechanism, TPS, programming language and framework, and Hex Code for Color of Blockchain Logo:"""
