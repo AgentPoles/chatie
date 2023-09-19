@@ -13,7 +13,7 @@ from decouple import config
 # SECTION 1
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> LOGIC TO SEND REQUEST TO OPEN AI >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 try:
-    openai.api_key = config('KEY')
+    print("put your api key here, key = config(KEY)")
 except NameError:
     pass
 
